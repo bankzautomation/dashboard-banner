@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+  body{margin:0;background:#0d0b4a;overflow:hidden;}
+  #t{white-space:nowrap;color:#f5a623;font:600 14px Arial;padding:8px 0;
+     display:inline-block;animation:move 15s linear infinite;}
+  @keyframes move{from{transform:translateX(100vw)}to{transform:translateX(-100%)}}
+</style></head>
+<body><div id="t">Thank you for working with Stancon Consultants.</div>
+<script>
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzvfcRc8ercqTAtKYw0U1JIM_WQcTmbQHSje852OH6UbN7Da8jIOP2x1Zi9aPQCJQU/exec';
+  const d = new URLSearchParams(location.search).get('d') || 'client';
+  fetch(SCRIPT_URL + '?d=' + d, { credentials: 'omit' })
+    .then(r => r.json())
+    .then(j => { if (j.msg) document.getElementById('t').textContent = j.msg; })
+    .catch(() => {});
+</script>
+</body></html>
